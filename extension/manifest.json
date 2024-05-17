@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "CyberGuardian",
+  "version": "1.0",
+  "description": "Scrapes URLs from the current tab and stores them in JSON format.",
+  "permissions": ["activeTab", "storage", "tabs", "scripting", "webRequest"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.jpg",
+      "32": "icons/icon32.jpg",
+      "48": "icons/icon48.jpg",
+      "128": "icons/icon128.jpg"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
